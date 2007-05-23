@@ -1,6 +1,6 @@
 %define name	qjackctl
 %define version 0.2.21
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: 	 	%{name}
 Summary: 	A QT gui for the jack audio daemon
@@ -13,7 +13,7 @@ URL:		http://sourceforge.net/projects/qjackctl/
 License:	GPL
 Group:		Sound
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	qt3-devel jackit-devel ImageMagick
+BuildRequires:	qt3-devel jackit-devel ImageMagick libalsa2-devel
 Requires:	jackit >= 0.90.0
 Provides:	jackwrapper
 
