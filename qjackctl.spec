@@ -1,6 +1,6 @@
 %define name	qjackctl
-%define version 0.2.21
-%define release %mkrel 3
+%define version 0.2.22
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	A QT gui for the jack audio daemon
