@@ -36,25 +36,13 @@ cat %SOURCE1 > $RPM_BUILD_ROOT/%_bindir/jackwrapper
 chmod 755 $RPM_BUILD_ROOT/%_bindir/jackwrapper
 
 #menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="%{name}.png" needs="x11" title="QJackCTL" longtitle="Controls the JACK Audio daemon" section="Multimedia/Sound"\
-xdg="true"
-EOF
-
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
-[Desktop Entry]
-Name=QJackCTL
-Comment=Controls the JACK Audio daemon
-Exec=%{_bindir}/%{name}
-Icon=%{name}
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;Audio;
-Encoding=UTF-8
-EOF
-
+desktop-file-install --vendor="" \
+  --add-category="X-MandrivaLinux-Sound" \
+  --remove-category="ALSA" \
+  --remove-category="JACK" \
+  --remove-category="MIDI" \
+  --remove-category="Multimedia" \
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 #icons
 mkdir -p $RPM_BUILD_ROOT/%_liconsdir
@@ -78,10 +66,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %{_bindir}/%name
 %{_bindir}/jackwrapper
-%{_menudir}/%name
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
-%{_datadir}/applications/mandriva-%{name}.desktop
+%{_datadir}/applications/*.desktop
+%{_datadir}/pixmaps/*
 
 
