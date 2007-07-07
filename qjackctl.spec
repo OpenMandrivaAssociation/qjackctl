@@ -1,5 +1,5 @@
 %define name	qjackctl
-%define version 0.2.22
+%define version 0.2.23
 %define release %mkrel 1
 
 Name: 	 	%{name}
