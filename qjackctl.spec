@@ -13,6 +13,7 @@ License:	GPL
 Group:		Sound
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	qt4-devel jackit-devel ImageMagick alsa-lib-devel
+BuildRequires:	desktop-file-utils
 Requires:	jackit >= 0.90.0
 
 %description
