@@ -1,5 +1,5 @@
 %define name	qjackctl
-%define version 0.2.23
+%define version 0.3.0
 %define release %mkrel 1
 
 Name: 	 	%{name}
@@ -8,14 +8,12 @@ Version: 	%{version}
 Release: 	%{release}
 
 Source:		http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.bz2
-Source1:	jackwrapper.sh
 URL:		http://sourceforge.net/projects/qjackctl/
 License:	GPL
 Group:		Sound
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	qt3-devel jackit-devel ImageMagick alsa-lib-devel
+BuildRequires:	qt4-devel jackit-devel ImageMagick alsa-lib-devel
 Requires:	jackit >= 0.90.0
-Provides:	jackwrapper
 
 %description
 JACK Audio Connection Kit - Qt GUI Interface: A simple Qt application to
@@ -32,8 +30,6 @@ perl -pi -e 's/\$QTDIR\/lib/\$QTDIR\/%{_lib}/' configure
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
-cat %SOURCE1 > $RPM_BUILD_ROOT/%_bindir/jackwrapper
-chmod 755 $RPM_BUILD_ROOT/%_bindir/jackwrapper
 
 #menu
 desktop-file-install --vendor="" \
@@ -65,7 +61,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README TODO
 %{_bindir}/%name
-%{_bindir}/jackwrapper
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
