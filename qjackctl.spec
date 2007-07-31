@@ -1,26 +1,22 @@
-%define name	qjackctl
-%define version 0.3.0
-%define release %mkrel 1
-
-Name: 	 	%{name}
 Summary: 	A QT gui for the jack audio daemon
-Version: 	%{version}
-Release: 	%{release}
-
-Source:		http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.bz2
-URL:		http://sourceforge.net/projects/qjackctl/
+Name: 	 	qjackctl
+Version: 	0.3.1a
+Release: 	%mkrel 1
 License:	GPL
 Group:		Sound
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+URL:		http://sourceforge.net/projects/qjackctl/
+Source:		http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.gz
 BuildRequires:	qt4-devel jackit-devel ImageMagick alsa-lib-devel
 BuildRequires:	desktop-file-utils
 Requires:	jackit >= 0.90.0
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 JACK Audio Connection Kit - Qt GUI Interface: A simple Qt application to
 control the JACK server daemon.
 
 %prep
+
 %setup -q
 
 %build
@@ -29,7 +25,8 @@ perl -pi -e 's/\$QTDIR\/lib/\$QTDIR\/%{_lib}/' configure
 %make
 										
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
+
 %makeinstall
 
 #menu
@@ -42,15 +39,15 @@ desktop-file-install --vendor="" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 #icons
-mkdir -p $RPM_BUILD_ROOT/%_liconsdir
-convert -size 48x48 icons/%name.png $RPM_BUILD_ROOT/%_liconsdir/%name.png
-mkdir -p $RPM_BUILD_ROOT/%_iconsdir
-convert -size 32x32 icons/%name.png $RPM_BUILD_ROOT/%_iconsdir/%name.png
-mkdir -p $RPM_BUILD_ROOT/%_miconsdir
-convert -size 16x16 icons/%name.png $RPM_BUILD_ROOT/%_miconsdir/%name.png
+mkdir -p %{buildroot}/%_liconsdir
+convert -size 48x48 icons/%name.png %{buildroot}/%_liconsdir/%name.png
+mkdir -p %{buildroot}/%_iconsdir
+convert -size 32x32 icons/%name.png %{buildroot}/%_iconsdir/%name.png
+mkdir -p %{buildroot}/%_miconsdir
+convert -size 16x16 icons/%name.png %{buildroot}/%_miconsdir/%name.png
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post
 %update_menus
@@ -67,5 +64,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_miconsdir}/%name.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/pixmaps/*
-
-
