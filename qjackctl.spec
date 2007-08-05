@@ -1,7 +1,7 @@
 Summary: 	A QT gui for the jack audio daemon
 Name: 	 	qjackctl
 Version: 	0.3.1a
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License:	GPL
 Group:		Sound
 URL:		http://sourceforge.net/projects/qjackctl/
@@ -31,11 +31,15 @@ rm -rf %{buildroot}
 
 #menu
 desktop-file-install --vendor="" \
-  --add-category="X-MandrivaLinux-Sound" \
   --remove-category="ALSA" \
   --remove-category="JACK" \
   --remove-category="MIDI" \
   --remove-category="Multimedia" \
+  --remove-category="Applications" \
+  --remove-category="AudioVideo" \
+  --remove-category="Qt" \
+  --add-category="Audio" \
+  --add-category="X-MandrivaLinux-Sound" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 #icons
