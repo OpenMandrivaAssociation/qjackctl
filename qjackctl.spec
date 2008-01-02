@@ -9,6 +9,7 @@ Source:		http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.gz
 BuildRequires:	qt4-devel jackit-devel ImageMagick alsa-lib-devel
 BuildRequires:	desktop-file-utils
 Requires:	jackit >= 0.90.0
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 JACK Audio Connection Kit - Qt GUI Interface: A simple Qt application to
