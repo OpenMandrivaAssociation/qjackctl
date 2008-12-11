@@ -6,7 +6,7 @@ License:	GPL
 Group:		Sound
 URL:		http://sourceforge.net/projects/qjackctl/
 Source:		http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.gz
-BuildRequires:	qt4-devel jackit-devel ImageMagick alsa-lib-devel
+BuildRequires:	qt4-devel jackit-devel imagemagick alsa-lib-devel
 BuildRequires:	desktop-file-utils
 Requires:	jackit >= 0.90.0
 BuildRoot:	%{_tmppath}/%{name}-buildroot
