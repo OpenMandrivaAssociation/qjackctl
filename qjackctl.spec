@@ -1,7 +1,7 @@
 Summary: 	A QT gui for the jack audio daemon
 Name: 	 	qjackctl
 Version: 	0.3.4
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 License:	GPLv2+
 Group:		Sound
 URL:		http://sourceforge.net/projects/qjackctl/
