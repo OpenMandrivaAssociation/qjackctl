@@ -1,12 +1,11 @@
 Summary: 	A QT gui for the jack audio daemon
 Name: 	 	qjackctl
-Version: 	0.3.4
-Release: 	%mkrel 3
+Version: 	0.3.5
+Release: 	%mkrel 1
 License:	GPLv2+
 Group:		Sound
 URL:		http://sourceforge.net/projects/qjackctl/
 Source:		http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.gz
-Patch0:		fix_imm_save_profile.patch
 BuildRequires:	qt4-devel jackit-devel imagemagick alsa-lib-devel
 BuildRequires:	desktop-file-utils
 Requires:	jackit >= 0.90.0
@@ -19,7 +18,6 @@ control the JACK server daemon.
 %prep
 
 %setup -q
-%patch0
 
 %build
 perl -pi -e 's/\$QTDIR\/lib/\$QTDIR\/%{_lib}/' configure
