@@ -1,15 +1,16 @@
-Summary: 	A QT gui for the jack audio daemon
-Name: 	 	qjackctl
-Version: 	0.3.5
-Release: 	%mkrel 1
-License:	GPLv2+
-Group:		Sound
-URL:		http://sourceforge.net/projects/qjackctl/
-Source:		http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.gz
-BuildRequires:	qt4-devel jackit-devel imagemagick alsa-lib-devel
-BuildRequires:	desktop-file-utils
-Requires:	jackit >= 0.90.0
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+Summary:    A QT gui for the jack audio daemon
+Name:       qjackctl
+Version:    0.3.6
+Release:    %mkrel 1
+License:    GPLv2+
+Group:      Sound
+URL:        http://sourceforge.net/projects/qjackctl/
+Source:     http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.gz
+BuildRequires:  qt4-devel jackit-devel imagemagick alsa-lib-devel
+BuildRequires: portaudio-devel
+BuildRequires:  desktop-file-utils
+Requires:   jackit >= 0.90.0
+BuildRoot:  %{_tmppath}/%{name}-buildroot
 
 %description
 JACK Audio Connection Kit - Qt GUI Interface: A simple Qt application to
@@ -23,7 +24,7 @@ control the JACK server daemon.
 perl -pi -e 's/\$QTDIR\/lib/\$QTDIR\/%{_lib}/' configure
 %configure2_5x
 %make
-										
+                                        
 %install
 rm -rf %{buildroot}
 
@@ -57,7 +58,7 @@ rm -rf %{buildroot}
 %post
 %update_menus
 %endif
-		
+        
 %if %mdkversion < 200900
 %postun
 %clean_menus
@@ -66,6 +67,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README TODO
+%{_mandir}/man1/*
 %{_bindir}/%name
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
