@@ -1,7 +1,7 @@
 Summary:    A QT gui for the jack audio daemon
 Name:       qjackctl
-Version:    0.3.6
-Release:    %mkrel 2
+Version:    0.3.8
+Release:    %mkrel 1
 License:    GPLv2+
 Group:      Sound
 URL:        http://sourceforge.net/projects/qjackctl/
@@ -21,14 +21,13 @@ control the JACK server daemon.
 %setup -q
 
 %build
-perl -pi -e 's/\$QTDIR\/lib/\$QTDIR\/%{_lib}/' configure
-%configure2_5x
+%configure
 %make
-                                        
+
 %install
 rm -rf %{buildroot}
 
-%makeinstall
+%makeinstall_std
 
 #menu
 desktop-file-install --vendor="" \
@@ -37,41 +36,19 @@ desktop-file-install --vendor="" \
   --remove-category="MIDI" \
   --remove-category="Multimedia" \
   --remove-category="Applications" \
-  --remove-category="AudioVideo" \
   --remove-category="Qt" \
   --add-category="Audio" \
   --add-category="X-MandrivaLinux-Sound" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-#icons
-mkdir -p %{buildroot}/%_liconsdir
-convert -size 48x48 icons/%name.png %{buildroot}/%_liconsdir/%name.png
-mkdir -p %{buildroot}/%_iconsdir
-convert -size 32x32 icons/%name.png %{buildroot}/%_iconsdir/%name.png
-mkdir -p %{buildroot}/%_miconsdir
-convert -size 16x16 icons/%name.png %{buildroot}/%_miconsdir/%name.png
-
 %clean
 rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-        
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
 
 %files
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README TODO
 %{_mandir}/man1/*
 %{_bindir}/%name
-%{_liconsdir}/%name.png
-%{_iconsdir}/%name.png
-%{_miconsdir}/%name.png
+%{_iconsdir}/hicolor/32x32/apps/%name.png
 %{_datadir}/applications/*.desktop
-%{_datadir}/pixmaps/*
 %{_datadir}/locale/*.qm
