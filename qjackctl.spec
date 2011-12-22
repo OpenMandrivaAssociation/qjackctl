@@ -19,6 +19,7 @@ control the JACK server daemon.
 %prep
 
 %setup -q
+perl -pi -e 's/error/\# error/g' qjackctl.pro
 
 %build
 %configure
