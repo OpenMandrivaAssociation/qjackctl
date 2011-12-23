@@ -23,7 +23,7 @@ perl -pi -e 's/error/\# error/g' qjackctl.pro
 
 %build
 %configure
-%make
+make
 
 %install
 rm -rf %{buildroot}
