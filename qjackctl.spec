@@ -1,16 +1,16 @@
 Summary:    A QT gui for the jack audio daemon
 Name:       qjackctl
-Version:    0.3.8
-Release:    2
+Version:    0.3.9
+Release:    1
+
 License:    GPLv2+
 Group:      Sound
 URL:        http://sourceforge.net/projects/qjackctl/
 Source:     http://prdownloads.sourceforge.net/qjackctl/%{name}-%{version}.tar.gz
-BuildRequires:  qt4-devel jackit-devel imagemagick alsa-lib-devel
+BuildRequires:  qt4-devel jackit-devel imagemagick libalsa-devel
 BuildRequires: portaudio-devel
 BuildRequires:  desktop-file-utils
-Requires:   jackit >= 0.90.0
-BuildRoot:  %{_tmppath}/%{name}-buildroot
+Requires:   jackit
 
 %description
 JACK Audio Connection Kit - Qt GUI Interface: A simple Qt application to
@@ -19,10 +19,9 @@ control the JACK server daemon.
 %prep
 
 %setup -q
-perl -pi -e 's/error/\# error/g' qjackctl.pro
 
 %build
-%configure
+%configure --enable-jack-version
 make
 
 %install
@@ -41,9 +40,6 @@ desktop-file-install --vendor="" \
   --add-category="Audio" \
   --add-category="X-MandrivaLinux-Sound" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
-
-%clean
-rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
