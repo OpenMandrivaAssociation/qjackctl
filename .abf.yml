@@ -1,2 +1,4 @@
+removed_sources:
+  qjackctl-0.3.9.tar.gz: 41e7e313f77fb9fd340a293740a399eeb91b9865
 sources:
-  "qjackctl-0.3.9.tar.gz": 41e7e313f77fb9fd340a293740a399eeb91b9865
+  qjackctl-0.3.10.tar.gz: 324cd7dfa65894f451f0f7988a8445fae752cdef
