@@ -2,13 +2,13 @@
 
 Summary:    A QT gui for the jack audio daemon
 Name:       qjackctl
-Version:    0.3.10
+Version:    0.3.11
 Release:    1
 
 License:    GPLv2+
 Group:      Sound
 URL:        http://sourceforge.net/projects/qjackctl/
-Source:     http://prdownloads.sourceforge.net/{name}/%{name}-%{version}.tar.gz
+Source:     http://downloads.sourceforge.net/qjackctl/files/%{name}-%{version}.tar.gz
 BuildRequires:  qt4-devel jackit-devel imagemagick libalsa-devel
 BuildRequires: portaudio-devel
 BuildRequires:  desktop-file-utils
@@ -211,5 +211,6 @@ desktop-file-install --vendor="" \
 
 * Mon Apr 05 2004 Austin Acton <austin@mandrake.org> 0.2.7-1mdk
 - 0.2.7
+
 
 
