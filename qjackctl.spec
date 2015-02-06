@@ -3,7 +3,7 @@
 Summary:    A QT gui for the jack audio daemon
 Name:       qjackctl
 Version:    0.3.11
-Release:    1
+Release:    2
 
 License:    GPLv2+
 Group:      Sound
