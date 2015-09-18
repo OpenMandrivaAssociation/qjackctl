@@ -2,8 +2,8 @@
 
 Summary:    A QT gui for the jack audio daemon
 Name:       qjackctl
-Version:    0.3.11
-Release:    2
+Version:    0.4.0
+Release:    1
 
 License:    GPLv2+
 Group:      Sound
@@ -48,8 +48,8 @@ desktop-file-install --vendor="" \
 %{_bindir}/%name
 %{_iconsdir}/hicolor/32x32/apps/%name.png
 %{_datadir}/applications/*.desktop
-%{_datadir}/locale/*.qm
-
+%{_datadir}/qjackctl
+%{_datadir}/appdata/qjackctl.appdata.xml
 
 %changelog
 * Fri May 18 2012 Frank Kober <emuse@mandriva.org> 0.3.9-1
