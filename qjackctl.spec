@@ -13,6 +13,7 @@ BuildRequires:	imagemagick
 BuildRequires:  qmake5
 BuildRequires:  qt5-qtchooser
 BuildRequires:	qt5-qttools
+BuildRequires:  qt5-linguist
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(portaudio-2.0)
