@@ -2,16 +2,24 @@
 
 Summary:    A QT gui for the jack audio daemon
 Name:       qjackctl
-Version:    0.4.0
+Version:    0.6.1
 Release:    1
 
 License:    GPLv2+
 Group:      Sound
 URL:        http://sourceforge.net/projects/qjackctl/
 Source:     http://downloads.sourceforge.net/qjackctl/files/%{name}-%{version}.tar.gz
-BuildRequires:  qt4-devel jackit-devel imagemagick libalsa-devel
-BuildRequires: portaudio-devel
-BuildRequires:  desktop-file-utils
+BuildRequires:	imagemagick
+BuildRequires:	qt5-qttools
+BuildRequires:	pkgconfig(jack)
+BuildRequires:	pkgconfig(alsa)
+BuildRequires:	pkgconfig(portaudio-2.0)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5DBus)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	pkgconfig(Qt5Xml)
+
 Requires:   jackit
 
 %description
@@ -19,25 +27,20 @@ JACK Audio Connection Kit - Qt GUI Interface: A simple Qt application to
 control the JACK server daemon.
 
 %prep
-
 %setup -q
 
 %build
-%configure --enable-jack-version
-make
+%configure2_5x \
+	--enable-jack-version \
+	--enable-debug
+
+%make_build
 
 %install
-
-%makeinstall_std
+%make_install
 
 #menu
 desktop-file-install --vendor="" \
-  --remove-category="ALSA" \
-  --remove-category="JACK" \
-  --remove-category="MIDI" \
-  --remove-category="Multimedia" \
-  --remove-category="Applications" \
-  --remove-category="Qt" \
   --add-category="Audio" \
   --add-category="X-MandrivaLinux-Sound" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
@@ -49,7 +52,7 @@ desktop-file-install --vendor="" \
 %{_iconsdir}/hicolor/32x32/apps/%name.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/qjackctl
-%{_datadir}/appdata/qjackctl.appdata.xml
+%{_datadir}/metainfo/%{name}.appdata.xml
 
 %changelog
 * Fri May 18 2012 Frank Kober <emuse@mandriva.org> 0.3.9-1
