@@ -10,6 +10,8 @@ Group:      Sound
 URL:        http://sourceforge.net/projects/qjackctl/
 Source:     http://downloads.sourceforge.net/qjackctl/files/%{name}-%{version}.tar.gz
 BuildRequires:	imagemagick
+BuildRequires:  qmake5
+BuildRequires:  qt5-qtchooser
 BuildRequires:	qt5-qttools
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(alsa)
