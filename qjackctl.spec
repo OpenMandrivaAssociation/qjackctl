@@ -2,7 +2,7 @@
 
 Summary:    A QT gui for the jack audio daemon
 Name:       qjackctl
-Version:    0.6.1
+Version:    0.9.0
 Release:    1
 
 License:    GPLv2+
@@ -34,7 +34,7 @@ control the JACK server daemon.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--enable-jack-version \
 	--enable-debug
 
