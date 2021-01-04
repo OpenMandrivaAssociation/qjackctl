@@ -53,9 +53,11 @@ desktop-file-install --vendor="" \
 %doc AUTHORS ChangeLog README TODO
 %{_mandir}/man1/*
 %{_bindir}/%name
-%{_iconsdir}/hicolor/32x32/apps/%name.png
+%{_iconsdir}/hicolor/*x*/apps/%name.png
+%{_iconsdir}/hicolor/scalable/apps/qjackctl.svg
 %{_datadir}/applications/*.desktop
 %{_datadir}/qjackctl
+%{_mandir}/fr/man1/qjackctl.1.*
 %{_datadir}/metainfo/%{name}.appdata.xml
 
 %changelog
