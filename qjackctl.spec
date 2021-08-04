@@ -1,8 +1,9 @@
-%define debug_package          %{nil}
+#define debug_package          %{nil}
+%define _empty_manifest_terminate_build 0
 
 Summary:    A QT gui for the jack audio daemon
 Name:       qjackctl
-Version:    0.9.0
+Version:    0.9.4
 Release:    1
 
 License:    GPLv2+
