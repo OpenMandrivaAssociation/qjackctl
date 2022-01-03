@@ -49,14 +49,13 @@ control the JACK server daemon.
 %setup -q
 
 %build
-%configure \
-	--enable-jack-version \
-	--enable-debug
+%cmake \
+       -DCONFIG_QT6=ON
 
 %make_build
 
 %install
-%make_install
+%make_install -C build
 
 #menu
 desktop-file-install --vendor="" \
