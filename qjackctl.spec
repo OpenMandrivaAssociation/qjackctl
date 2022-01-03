@@ -35,6 +35,12 @@ control the JACK server daemon.
 %setup -q
 
 %build
+# workaround for https://sourceforge.net/p/qjackctl/tickets/57/
+# error: call to deleted constructor of 'const QPainterPathStroker
+# because all development was move to new Qt6 backend. Last good config for Qt5 is compiling with GCC.
+# After Lx 4.3 we should start build it as Qt6 application.
+export CC=gcc
+export CXX=g++
 %configure \
 	--enable-jack-version \
 	--enable-debug
