@@ -11,19 +11,33 @@ Group:      Sound
 URL:        http://sourceforge.net/projects/qjackctl/
 Source:     http://downloads.sourceforge.net/qjackctl/files/%{name}-%{version}.tar.gz
 BuildRequires:	imagemagick
-BuildRequires:  qmake5
-BuildRequires:  qt5-qtchooser
-BuildRequires:	qt5-qttools
-BuildRequires:  qt5-linguist
-BuildRequires:  qt5-linguist-tools
+BuildRequires:	cmake(qt6)
+BuildRequires:	qmake-qt6
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6GuiTools)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:	cmake(Qt6Network)
+BuildRequires:	cmake(Qt6DBus)
+BuildRequires:	cmake(Qt6OpenGLWidgets)
+BuildRequires:	cmake(Qt6Sql)
+BuildRequires:	cmake(Qt6OpenGL)
+BuildRequires:	cmake(Qt6OpenGLWidgets)
+#BuildRequires:	cmake(Qt6Linguist)
+#BuildRequires:	cmake(qt6linguisttools)
+BuildRequires:	qt6-qttools
+#BuildRequires:  qt5-qtchooser
+#BuildRequires:	qt5-qttools
+#BuildRequires:  qt5-linguist
+#BuildRequires:  qt5-linguist-tools
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(portaudio-2.0)
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5DBus)
-BuildRequires:	pkgconfig(Qt5Widgets)
-BuildRequires:	pkgconfig(Qt5X11Extras)
-BuildRequires:	pkgconfig(Qt5Xml)
+#BuildRequires:	pkgconfig(Qt5Core)
+#BuildRequires:	pkgconfig(Qt5DBus)
+#BuildRequires:	pkgconfig(Qt5Widgets)
+#BuildRequires:	pkgconfig(Qt5X11Extras)
+#BuildRequires:	pkgconfig(Qt5Xml)
 
 Requires:   jackit
 
@@ -35,12 +49,6 @@ control the JACK server daemon.
 %setup -q
 
 %build
-# workaround for https://sourceforge.net/p/qjackctl/tickets/57/
-# error: call to deleted constructor of 'const QPainterPathStroker
-# because all development was move to new Qt6 backend. Last good config for Qt5 is compiling with GCC.
-# After Lx 4.3 we should start build it as Qt6 application.
-export CC=gcc
-export CXX=g++
 %configure \
 	--enable-jack-version \
 	--enable-debug
