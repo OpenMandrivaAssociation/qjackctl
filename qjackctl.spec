@@ -14,6 +14,7 @@ BuildRequires:	imagemagick
 BuildRequires:	cmake(qt6)
 BuildRequires:	qmake-qt6
 BuildRequires:	cmake(Qt6Core)
+BuildRequires:       cmake(Qt6Concurrent)
 BuildRequires:	cmake(Qt6Gui)
 BuildRequires:	cmake(Qt6GuiTools)
 BuildRequires:	cmake(Qt6Widgets)
@@ -24,21 +25,11 @@ BuildRequires:	cmake(Qt6Sql)
 BuildRequires:	cmake(Qt6OpenGL)
 BuildRequires:	cmake(Qt6OpenGLWidgets)
 BuildRequires:       cmake(Qt6Xml)
-#BuildRequires:	cmake(Qt6Linguist)
-#BuildRequires:	cmake(qt6linguisttools)
 BuildRequires:	qt6-qttools
-#BuildRequires:  qt5-qtchooser
-#BuildRequires:	qt5-qttools
-#BuildRequires:  qt5-linguist
-#BuildRequires:  qt5-linguist-tools
+BuildRequires:       pkgconfig(opengl)
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(portaudio-2.0)
-#BuildRequires:	pkgconfig(Qt5Core)
-#BuildRequires:	pkgconfig(Qt5DBus)
-#BuildRequires:	pkgconfig(Qt5Widgets)
-#BuildRequires:	pkgconfig(Qt5X11Extras)
-#BuildRequires:	pkgconfig(Qt5Xml)
 
 Requires:   jackit
 
