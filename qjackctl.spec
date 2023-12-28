@@ -21,10 +21,12 @@ BuildRequires: cmake(Qt6Network)
 BuildRequires: cmake(Qt6DBus)
 BuildRequires: cmake(Qt6OpenGLWidgets)
 BuildRequires: cmake(Qt6Sql)
+BuildRequires: cmake(Qt6Svg)
 BuildRequires: cmake(Qt6OpenGL)
 BuildRequires: cmake(Qt6OpenGLWidgets)
 BuildRequires: cmake(Qt6Xml)
 BuildRequires: qt6-qttools
+BuildRequires: qt6-qtbase-theme-gtk3
 BuildRequires: pkgconfig(opengl)
 BuildRequires: pkgconfig(openssl)
 BuildRequires: pkgconfig(jack)
