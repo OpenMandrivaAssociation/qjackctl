@@ -62,15 +62,15 @@ desktop-file-install --vendor="" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files
-%doc AUTHORS ChangeLog README TODO
+%doc ChangeLog README
 %{_mandir}/man1/*
 %{_bindir}/%name
-%{_iconsdir}/hicolor/*x*/apps/%name.png
-%{_iconsdir}/hicolor/scalable/apps/qjackctl.svg
+#{_iconsdir}/hicolor/*x*/apps/%name.png
+#{_iconsdir}/hicolor/scalable/apps/qjackctl.svg
 %{_datadir}/applications/*.desktop
 %{_datadir}/qjackctl
 %{_mandir}/fr/man1/qjackctl.1.*
-%{_datadir}/metainfo/%{name}.appdata.xml
+#{_datadir}/metainfo/%{name}.appdata.xml
 
 %changelog
 * Fri May 18 2012 Frank Kober <emuse@mandriva.org> 0.3.9-1
