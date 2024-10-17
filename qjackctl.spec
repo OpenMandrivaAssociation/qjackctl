@@ -7,7 +7,7 @@ Version:    0.9.12
 Release:    1
 License:    GPLv2+
 Group:      Sound
-URL:        http://sourceforge.net/projects/qjackctl/
+URL:        https://sourceforge.net/projects/qjackctl/
 Source:     http://downloads.sourceforge.net/qjackctl/files/%{name}-%{version}.tar.gz
 BuildRequires: imagemagick
 BuildRequires: cmake(qt6)
