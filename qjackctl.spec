@@ -3,7 +3,7 @@
 
 Summary:	A QT gui for the jack audio daemon
 Name:	qjackctl
-Version:	1.0.4
+Version:	1.0.6
 Release:	1
 License:	GPLv2+
 Group:	Sound
@@ -69,7 +69,7 @@ control the JACK server daemon.
 %install
 %make_install -C build
 
-#Fix .desktop file
+# Fix .desktop file
 desktop-file-edit --add-category="Audio" \
 	--add-category="X-OpenMandrivaLinux-Sound" \
 	--remove-key="X-SuSE-translate" \
