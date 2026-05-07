@@ -9,7 +9,9 @@ License:	GPLv2+
 Group:	Sound
 Url:	https://sourceforge.net/projects/qjackctl/
 Source0:	http://downloads.sourceforge.net/qjackctl/files/%{name}-%{version}.tar.gz
+BuildRequires: cmake
 BuildRequires: imagemagick
+BuildRequires: make
 BuildRequires: qmake-qt6
 BuildRequires: qt6-qtbase-theme-gtk3
 BuildRequires: qt6-qttools
